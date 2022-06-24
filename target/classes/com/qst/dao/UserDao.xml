@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.qst.dao.UserDao">
+    <insert id="addUser">
+        insert into users(userName, userPassword, isAdmin) values(#{userName}, #{userPassword}, #{isAdmin});
+    </insert>
+
+    <select id="queryUser" resultType="com.qst.domain.Users">
+        select * from users where userName=#{userName} and userPassword=#{userPassword};
+    </select>
+    <select id="queryUserByName" resultType="com.qst.domain.Users">
+        select * from users where userName=#{userName};
+    </select>
+</mapper>

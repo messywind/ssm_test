@@ -1,0 +1,31 @@
+.span12{
+    position: absolute;
+    width: 150%;
+    height: 5%;
+    top:3%;
+    font-size: 150%;
+
+    background: #2690b9;
+}
+.span12 ul{
+
+    list-style-type: none;
+    width: auto;
+
+}
+
+.span12 li{
+    position: relative;
+    width: 15%;
+    float:left ;
+
+}
+.span12 li a{
+    color:white;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+}
+.span12 li a:hover{
+    background-color: #111;
+}

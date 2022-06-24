@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.qst.dao.BookDao">
+    <select id="queryAllBook" resultType="com.qst.domain.Books">
+        select * from books;
+    </select>
+    <insert id="addBook" parameterType="Books">
+        insert into books(bookID, bookName, bookCount, bookDetail, userName)
+        values(#{bookID}, #{bookName}, #{bookCount}, #{bookDetail}, #{userName});
+    </insert>
+    <update id="updateBook" parameterType="Books">
+        update books
+        <set>
+            <if test="bookName != null and bookName != ''">
+                bookName = #{bookName},
+            </if>
+            <if test="bookCount != null">
+                bookCount = #{bookCount},
+            </if>
+            <if test="bookDetail != null and bookDetail != ''">
+                bookDetail = #{bookDetail},
+            </if>
+        </set>
+        where bookID = #{bookID};
+    </update>
+    <delete id="deleteBookById">
+        delete from books where bookID=#{bookID};
+    </delete>
+    <select id="queryBookById" parameterType="int" resultType="com.qst.domain.Books">
+        select * from books where bookID=#{bookID};
+    </select>
+    <select id="queryBookByName" parameterType="String" resultType="com.qst.domain.Books">
+        select * from books where bookName=#{bookName};
+    </select>
+    <select id="queryBorrowBookStatus" resultType="java.lang.String">
+        select status from borrow where userName=#{userName} and bookID=#{bookID};
+    </select>
+    <select id="queryUserBook" resultType="com.qst.domain.Books">
+        select * from books where userName=#{userName};
+    </select>
+</mapper>

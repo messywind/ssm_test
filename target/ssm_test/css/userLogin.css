@@ -1,0 +1,43 @@
+
+.span12 {
+    position: absolute;
+
+    padding-top: 3%;
+    /*padding-right: 15%;*/
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 2%;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+
+    /*margin-right: auto;*/
+    margin-top: 15%;
+    margin-left: 59%;
+
+}
+body{
+    background-image: url("../img/1.PNG");
+    background-size:100% 100%;
+
+    background-position: center;
+
+}
+.a1{
+    font-size: 50px;
+    color: #2690b9;
+    position: absolute;
+    padding-top: 2%;
+    text-align: center;
+    font-weight: bold;
+
+}
+.a2{
+    font-size:15px ;
+
+}
+.btn{
+     background:#2690b9;
+     width: 100%;
+    font-size: 15px;
+}

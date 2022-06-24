@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.qst.dao.BorrowDao">
+    <insert id="addBorrow">
+        insert into borrow(userName, bookID, bookStatus) values(#{userName}, #{bookID}, #{bookStatus});
+    </insert>
+    <update id="updateBorrow">
+        update borrow
+        <set>
+            <if test="userName != null and userName != ''">
+                userName = #{userName},
+            </if>
+            <if test="bookID != null and bookID != ''">
+                bookID = #{bookID},
+            </if>
+            <if test="bookStatus != null and bookStatus != ''">
+                bookStatus = #{bookStatus},
+            </if>
+        </set>
+        where userName = #{userName} and bookID = #{bookID};
+    </update>
+    <select id="queryBorrow" resultType="com.qst.domain.Borrow">
+        select * from borrow where userName=#{userName} and bookID=#{bookID};
+    </select>
+    <select id="queryAllBorrow" resultType="com.qst.domain.Borrow">
+        select * from borrow where userName=#{userName};
+    </select>
+</mapper>
